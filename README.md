@@ -62,6 +62,7 @@ Each file contains practice queries related to specific SQL concepts.
 ## 🚀 Author
 
 **Rushikesh Taralkar**
+
 Aspiring Data Engineer | Big Data Learner
 
 ---
