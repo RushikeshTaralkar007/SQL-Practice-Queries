@@ -79,6 +79,4 @@ Select 10+20;
 
 
  
-PS C:\Desktop\SQL\SQL_Basics> git remote add origin https://github.com/RushikeshTaralkar007/SQL-Practice-Queries.git 
-fatal: not a git repository (or any of the parent directories): .git
-PS C:\Desktop\SQL\SQL_Basics> 
+
