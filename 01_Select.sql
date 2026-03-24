@@ -76,7 +76,105 @@ From Employees;
 
 Select 10+20;
 
+-- Q11) How do you subtract numbers using SELECT
+-- > Yes 
 
-
+select 50-20;
  
+ 
+-- Q12) How do you multiply & Divide numbers using SELECT
+-- > Yes 
+
+select 50*2;
+select 50/2;
+
+-- Q13) How do you display all employee IDs and names
+
+select ID , Name From Employees;
+
+-- Q14) How do you retrieve the city and salary of employees
+
+select City , Salary From Employees;
+
+
+-- Q15) How do you rename Salary as Monthly_Salary
+
+select Salary As Monthly_Salary From Employees;
+
+
+-- Q16) How do you add 1000 bonus to each employee salary
+
+select NAme , Salary +1000 AS Salary_With_Bonus From Employees;
+
+
+-- Q17) How do you reduce 500 from each employee salary
+
+select NAme , Salary - 500 AS Adjust_Salary  From Employees;
+
+
+-- Q18) How do you double the salary using SELECT
+
+select Name, Salary *2 As Double_Salary From Employees;
+
+
+-- Q19) How do you calculate salary after tax deduction of 10%
+
+select Name , Salary *0.10  As Salary_After_Tax From Employees;
+
+
+-- Q20) How do you display a message with employee names
+
+select Name , "Active Employee" As Status from Employees;
+
+
+-- Q21) How do you display a fixed company name with employee names 
+
+select Name , "ABC Comapny" As company From Employees;
+
+
+-- Q22) How do you show salary with a constant tax rate
+
+select Salary , 0.1 As Tax_Rate From Employees;
+
+
+-- Q23) How do you display employee names in uppercase
+
+select upper(Name) From Employees;
+
+-- Q24) How do you display employee names in lowercase
+
+select lower(Name) From Employees;
+
+
+-- Q25) How do you count total employees
+
+select count(*) From Employees;
+
+-- Q26) How do you find the maximum salary
+
+select max(Salary) From Employees;
+
+-- Q27) How do you find the minimum salary
+
+select min(Salary) From Employees;
+
+
+-- Q28) How do you calculate salary after adding 5000 increment
+
+select Salary +5000 As Increment_Salary From Employees;
+
+-- Q29) How do you calculate half of each salary
+
+Select Salary /2 As Half_Salary From Employees;
+
+-- Q30) How do you display employee information with a constant column named Company
+
+select Name , Department , "XYZ Company" As Company_Name From Employees;
+
+
+
+
+
+
+
 
