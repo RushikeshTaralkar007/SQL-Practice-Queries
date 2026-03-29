@@ -111,10 +111,69 @@ select * from Employees where Age = 25 OR Age = 30;
 select * from EMployees where Salary between 40000 And 70000;
 
 
+-- Q21) How do you retrieve employees whose age is between 25 and 30
+
+select * from Employees Where Age between 25 AND 30;
 
 
+-- Q22) How do you retrieve employees from Mumbai, Pune, and Delhi
+
+select * from Employees WHERE City In ("Mumbai","Pune","Dehli");
+
+-- Q23) How do you retrieve employees from IT, HR, or Finance department
+
+select * from Employees where Department In ("IT","HR","Finance");
 
 
+-- Q24) How do you retrieve employees whose age is 25, 28, or 30
+
+select * from Employees Where Age In (25,28,30);
+
+
+-- Q25) How do you retrieve employees whose name starts with 'R'
+
+select * from Employees Where Name LIKE "R%";
+
+-- Q26) How do you retrieve employees whose name ends with 'a'
+
+select * from Employees Where Name LIKE "A%";
+
+
+-- Q27) How do you retrieve employees whose name contains 'an'
+
+select * from Employees where Name LIKE "%an%";
+
+-- Q28) How do you retrieve employees not from Mumbai
+
+select * from Employees where City != "Mumbai";
+
+-- Q29) How do you retrieve employees whose department is not IT
+
+select * from Employees Where Department != "IT";
+
+-- Q30) How do you retrieve employees whose salary is not between 40000 and 70000
+
+select * from Employees Where Salary Not between 40000 And 70000;
+
+-- Q31)How do you retrieve employees from Mumbai whose salary is above 60000
+
+select * From Employees Where City = "Mumbai" And Salary > 60000;
+
+-- Q32) How do you retrieve employees whose age is less than 28 and city is Pune
+
+select * from Employees Where Age < 28 and City = "Pune";
+
+-- Q33) How do you retrieve employees whose salary is equal to 50000 or department is HR
+
+select * from Employees Where Salary >= 50000 And Department = "HR";
+
+-- Q34) How do you retrieve employees whose age is not 25
+
+select * from Employees Where Age != 25;
+
+-- Q35) How do you retrieve employees whose city is not Pune
+
+select * from Employees Where City != "Pune";
 
 
 
