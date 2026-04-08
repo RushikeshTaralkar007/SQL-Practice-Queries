@@ -182,5 +182,48 @@ select distinct Name From Employee Order By Name ASC;
 
 select distinct City From Employee where Age > 30;
 
+-- Q31) Get unique department count per city 
+
+select City ,count(distinct Department) As Unique_Department From Employee Group By City;
+
+-- Q32) Get unique cities per department
+
+select Department , count(distinct City) As Unique_City From Employee Group By Department;
+
+-- Q33) Get unique employee names per city.
+
+select City , Count(Name) From Employee Group By City;
+
+
+-- Q34) Get unique Salaries per department 
+
+select Department ,Count(Salary) From Employee Group By Department;
+
+
+-- Q35) Get unique cities where salary is maximum
+
+select distinct City From Employee Where Salary = (select max(Salary) From Employee);
+
+-- Q36) Get unique cities where salary is minimum
+
+select distinct City From Employee Where Salary = (select Min(Salary) From Employee);
+
+
+-- Q37) Count distinct (unique) combinations of City + Department
+
+select count(distinct City,Department) From Employee;
+
+-- Q38)  Get unique names from Pune
+
+select distinct Name From Employee Where City = "Pune";
+
+-- Q39) Get unique salaries in HR department
+
+select distinct Salary From Employee where Department = "HR";
+
+-- Q40) Get unique departments with highest salary employees
+
+select distinct Department From Employee Where Salary = (select Max(Salary) From Employee);
+
 
 
