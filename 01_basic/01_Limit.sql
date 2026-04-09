@@ -84,3 +84,43 @@ select * from Products where City = "Mumbai" limit 5;
 
 select * from Products where Category = "Fashion" Order By Price DESC Limit 2;
 
+-- Q13) Show 3 products with rating above 4.5
+
+select * from Products where Rating > 4.5 limit 3;
+
+-- Q14) Show 5 products with stock greater than 50
+
+select * from Products where Stock > 50 limit 5;
+
+-- Q15) Skip first 5 rows and show next 5
+
+select * From Products limit 5 Offset 5;
+
+-- Q16) Show 3 products after skipping 10
+
+select * from Products limit 3 offset 10;
+
+-- Q17)  Show next 5 highest priced products after top 5
+
+select * from Products Order By price Desc limit 5 Offset 5;
+
+-- Q18) Show next 3 lowest priced products after first 3
+
+select * from Products Order by Price ASC limit 3 offset 3;
+
+-- Q19)  Show top 5 expensive products in Electronics
+
+select * from Products where Category = "Electronics" Order By Price Desc limit 5;
+
+
+-- Q20) Show 2 lowest stock products
+
+select * from Products Order By stock Asc limit 2;
+
+-- Q21) Show top 5 products by rating and price
+
+select * from Products order by Rating Desc , Price Desc Limit 5;
+
+-- Q22)  Show 4 products with highest stock in Electronics
+
+select * from Products where Category = "Electronics" Order By Stock limit 4;
