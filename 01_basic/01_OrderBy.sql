@@ -131,11 +131,63 @@ select * from Sales Where Order_Date between '2024-02-01' AND '2024-02-28' Order
 select * from Sales Where Order_Date <'2024-02-01'Order By Amount DESC; 
 
 
+-- Q23) Sort February orders by Quantity
+
+select * from Sales where Order_Date >= '2024-02-01' order by Quantity DESC;
+
+-- Q24) Sort by Amount and Quantity
+
+select * from Sales Order by Amount DESC , Quantity DESC;
+
+-- Q25)  Sort by length of Product name
+
+select * from Sales order by length(Product);
 
 
+-- Q26)  Sort by Amount difference
+
+select * ,(Amount * Quantity) AS Total from Sales Order By Total DESC; 
 
 
+-- Q27) Sort by City alphabetically and latest date
 
+select * from Sales order by City , Order_Date DESC;
+
+
+-- Q28) Top 3 highest sales in each city 
+
+select * from Sales order by City , Amount DESC;
+
+-- Q29)  Highest sale
+
+select * from Sales order by Amount DESC limit 1;
+
+-- Q30)  Lowest sale
+
+select * from Sales order by Amount ASC limit 1;
+
+-- Q31)  Sort by total revenue
+
+select * ,(Amount * Quantity) As Revenue from Sales Order By Revenue DESC;
+
+-- Q32)  Sort products by frequency
+
+select Product , count(*) As Number_Of_Products From Sales group by Product Order By count(*) DESC;
+
+
+-- Q33) Top 5 Electronics sales
+
+select * from Sales where Category = "Electronics" order by Amount DESC limit 5;
+
+
+-- Q34) Top 3 customers by spending
+
+select Customer_Name , Sum(Amount) AS Total From Sales group by Customer_Name Order By Total DESC limit 3;
+
+
+-- Q35) Cities with highest orders
+
+select City , count(*) AS City_Order From Sales group by City order by count(*) DESC;
 
 
 
