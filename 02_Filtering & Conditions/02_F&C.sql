@@ -274,3 +274,55 @@ select * from emp where Department = "Finance" And Age >30;
 -- Q50) HR employees with salary < 45000
 
 select * from emp where Department = "HR" and Salary < 45000;
+
+
+-- Q51) Employees NOT in HR
+
+select * from emp where Department != 'HR';
+
+-- Q52) Salary > 70000 OR city = 'Mumbai'
+
+select * from emp where  City = "Mumbai" OR Salary > 70000;
+
+-- Q53) IT employees with salary < 60000
+
+select * from emp where Department = 'IT' and Salary < 60000;
+
+-- !!!! BETWEEN + IN MIX !!!! --
+
+
+-- Q54) Salary between 45000–75000 AND IT
+
+select * from emp where Salary between 45000 and 75000 and DEpartment = "IT";
+
+
+-- Q55) City IN Pune, Delhi AND salary > 60000
+
+select * from emp where City in ('Pune' , 'Delhi') and Salary > 60000;
+
+-- Q56) Salary IN 50000, 60000, 70000 AND Delhi
+
+select * from emp where Salary in (50000,60000,70000) and City = "Delhi";
+
+
+-- Q57)  Department NOT IN IT,HR 
+
+select * from emp where Department Not in ("IT","HR");
+
+
+-- Q58) Age NOT BETWEEN 28–35
+
+select * from emp where Age Not Between 28 and 35;
+
+
+-- Q59) Department IN IT, Finance AND age > 30
+
+select * from emp where Department in ('IT' , "Finance") and Age > 30;
+
+
+
+-- Q60) Age > 25 AND NOT Mumbai
+
+select * from emp where Age > 25 and city != 'Mumbai';
+
+
