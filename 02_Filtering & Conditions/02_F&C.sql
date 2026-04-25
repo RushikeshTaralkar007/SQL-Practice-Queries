@@ -321,6 +321,7 @@ select * from emp where Department in ('IT' , "Finance") and Age > 30;
 
 
 
+
 -- Q60) Age > 25 AND NOT Mumbai
 
 select * from emp where Age > 25 and city != 'Mumbai';
