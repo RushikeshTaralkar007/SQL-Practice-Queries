@@ -98,5 +98,119 @@ select Department , Avg(Salary) AS Avg_Salary From Info group by Department;
 
 select Department , Max(Salary) AS Max_Salary From Info group by Department;
 
+-- Q16) Count employees per city
+
+select City , count(*) AS City_Count from Info group by City;
+
+-- Q17) Total salary per city
+
+select City, Sum(Salary) AS Total_Salary_Per_City from Info group by City;
+
+
+-- Q18) Find departments having more than 5 employees
+
+select Department , count(*) As Total_Emp from Info group by Department Having count(*) > 5;
+
+
+-- Q19)  Find average salary of employees older than 28
+
+select Avg(Salary) from Info where Age > 28;
+
+
+-- Q20) Find highest salary employee name
+
+select Name, Salary  from Info where Salary=(select Max(Salary) from Info);
+
+-- Q21) Count employees older than 30
+
+select count(*) AS Count_Of_Emp from Info where Age > 30;
+
+-- Q22) City-wise average salary
+
+select City, Avg(Salary) AS City_AVG_Salary from Info group by City;
+
+
+-- Q23) Cities having more than 3 employees
+
+select City, Count(*) AS City_Count From Info group by City having count(*) >3;
+
+
+-- Q24) Departments with total salary > 200000
+
+select Department , sum(Salary) AS Dep_Total_Salary from Info group by Department having sum(Salary) > 200000;
+
+
+-- Q25) Employee with lowest salary
+
+select Name, Salary  AS Low_Salary_Emp from Info where Salary = (select min(Salary) From Info);
+
+
+-- Q26) Count distinct departments
+
+select count(distinct Department) From Info;
+
+-- Q27) Count distinct cities
+
+select count(distinct City ) From Info;
+
+
+-- Q28) Total employees per age group
+
+select Age , count(*) from Info group by Age;
+
+
+-- Q29) Average salary per age group
+
+select Age , Avg(Salary) from Info group by Age;
+
+
+-- Q30)  Max salary per city
+
+select City , Max(Salary) from Info group by City;
+
+
+-- Q31) Min salary per city
+
+select City , Min(Salary) From Info group by City;
+
+
+-- Q32) Total salary per age group
+
+select Age , Sum(Salary) From Info group by Age;
+
+-- Q33)  Employees earning above average salary
+
+select Name , Salary from Info where Salary > (select Avg(Salary) from Info);
+
+
+-- Q34) Count employees earning below 60000
+
+select Name , Salary from Info where Salary < 60000;
+
+
+-- Q35) Total salary of employees in Pune IT department
+
+Select sum(Salary) from Info where City= "Pune" and Department = "IT";
+
+
+-- Q36) Average salary of Delhi Finance employees
+
+select Avg(Salary) from Info where City= "Delhi" And Department = "Finance";
+
+
+-- Q37) Highest salary in Mumbai
+
+select max(Salary) from Info Where City="Mumbai";
+
+
+-- Q38) Count employees in each department & city
+
+select Department , City , Count(*) from Info group by Department , City;
+
+
+-- Q39) Total salary company-wide + employee count
+
+select count(*) AS Total_Emp , sum(Salary) as Total_Salary from Info;
+
 
 
