@@ -309,7 +309,7 @@ group by D.Location
 having Sum(salary) > 200000;
 
 
--- Q30) Departments with min salary < 50000
+-- Q30) Departments with min salary < 50000.
 
 select D.Dept_Name 
 from Emp E
