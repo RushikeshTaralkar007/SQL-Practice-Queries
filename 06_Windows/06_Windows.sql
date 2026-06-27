@@ -110,6 +110,128 @@ select * , row_number() over(partition by Category order by Revenue desc) As Cat
  select Sales_Date , Quantity , Sum(Quantity) over(order by  Sales_Date) As Running_Qty From Foodsales;
  
  
+ -- Q11) Category-wise running revenue
+ 
+ select *, sum(Revenue) over(partition by Category order by Sales_Date) As Running_Revenue From Foodsales;
+ 
+ 
+-- Q12)  Average revenue of all rows
+ 
+ select *, Avg(Revenue) over(partition by Category) As Avg_Revenue From Foodsales;
+ 
+ 
+ --  Q13) Category maximum revenue
+ 
+ select *, Max(Revenue) Over(partition by Category) As Category_Max From Foodsales;
+ 
+ -- Q14) Category minimum revenue
+ 
+ select * , Min(Revenue) over(partition by Category) As Category_Min From Foodsales;
+ 
+ 
+ -- Q15) Revenue difference from previous sale
+ 
+ select *, Revenue-LAG(Revenue) over(order by Sales_Date) As Difference_Revenue From Foodsales;
+ 
+ 
+ -- Q16) Revenue difference from next sale
+ 
+ select * , Revenue - LEAD(Revenue) over(order by Sales_Date) From Foodsales;
+ 
+ 
+ -- Q17)  First revenue in category (First Value) 
+ 
+ select * , first_value(Revenue) over(partition by Category order by Sales_Date) As FirstRevenue From Foodsales;
+ 
+ 
+ -- Q18)  Last revenue in category
+ 
+ select *, last_value(Revenue) over(partition by Category order by Sales_Date Rows Between UNBOUNDED preceding And UNBOUNDED Following) As LastRevenue From Foodsales;
  
  
  
+-- Q19) Category Wise Count rows
+
+select * , Count(*) over(partition by Category) As Category_Count From Foodsales;
+ 
+ 
+ -- Q20) Count rows
+ 
+ select * , count(*) over() As Rows_Count From Foodsales;
+ 
+ 
+ -- Q21) Revenue percentage contribution
+ 
+ select *, Revenue*100.0/ Sum(Revenue) over() As Revenue_Percent From Foodsales;
+ 
+ 
+ -- Q22) Revenue percentage within category
+ 
+ select *, Revenue*100.0/ sum(Revenue) over(partition by Category) As Category_Percent From Foodsales;
+ 
+ 
+ -- Q23) Top revenue sale
+ 
+with CTE As ( Select *, row_number() over(order by Revenue desc) rn From Foodsales)
+
+select * From CTE 
+where rn =1;
+ 
+ 
+ -- Q24) Top 3 revenue sales
+ 
+ with TR As ( select *, row_number() over(order by Revenue desc) rn From Foodsales)
+ 
+ select * From TR
+where rn<=3;
+
+
+-- Q25) Top 2 products per category
+
+With CTE As ( Select * , row_number() over(partition by Category order by Revenue desc) rn From Foodsales)
+
+select * from CTE 
+where rn <=2;
+
+
+ -- Q26) Second highest revenue
+
+With CTE As ( Select * , dense_rank() over(order by Revenue desc) dr From Foodsales)
+
+select * From CTE 
+where dr=2;
+
+
+-- Q27)  Third highest revenue
+
+With CTE AS ( Select *, dense_rank() over(order by Revenue desc) dr From Foodsales)
+
+Select * From CTE 
+where dr=3;
+
+
+
+-- Q28) Highest revenue in each category
+
+select * From ( Select *, row_number() over(partition by Category order by Revenue desc) As rn From Foodsales)
+
+where rn=1;
+
+
+
+-- Q29) Compare revenue with category average
+
+select * , Avg(Revenue) over(partition by Category) As Avg_Revenue From Foodsales;
+
+
+-- Q30) Find rows above category average
+
+With CTE AS( Select *, Avg(Revenue) over(partition by Category) Avg_Revenue From Foodsales)
+
+select * From CTE 
+where Revenue > Avg_Revenue;
+
+
+
+
+
